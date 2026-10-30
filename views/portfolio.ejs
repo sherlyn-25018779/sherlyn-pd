@@ -1,0 +1,28 @@
+<!-- PORTFOLIO -->
+<section>
+  <div class="container">
+    <div class="window">
+      <div class="window-bar"><span>C:\Portfolio</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body">
+        <h1 class="page-title">My Portfolio</h1>
+
+        <p class="filter-label">Filter by category</p>
+        <div class="filters">
+          <% categories.forEach(c => { %>
+            <a href="/portfolio?category=<%= c.key %>" class="filter-btn <%= selected === c.key ? 'active' : '' %>"><%= c.label %></a>
+          <% }) %>
+        </div>
+
+        <% if (projects.length) { %>
+          <div class="card-grid two">
+            <% projects.forEach(p => { %>
+              <%- include('partials/project-card', { p, flip: true }) %>
+            <% }) %>
+          </div>
+        <% } else { %>
+          <p class="empty-msg">No projects in this category yet.</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>

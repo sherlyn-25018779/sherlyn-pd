@@ -1,0 +1,51 @@
+<!-- CONTACT -->
+<section>
+  <div class="container contact-wrap">
+    <h1 class="page-title" style="margin-bottom:0">Get in Touch</h1>
+
+    <div class="window reveal">
+      <div class="window-bar"><span>New Message</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body">
+        <p class="lead">I'd love to hear from you!<br />Feel free to send me a message.</p>
+
+        <% if (flash) { %><div class="alert <%= flash.type %>"><%= flash.text %></div><% } %>
+        <% if (typeof error !== 'undefined') { %><div class="alert error"><%= error %></div><% } %>
+
+        <form action="/contact" method="POST">
+          <div>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" value="<%= form.name || '' %>" required />
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" value="<%= form.email || '' %>" required />
+          </div>
+          <div>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" value="<%= form.subject || '' %>" required />
+          </div>
+          <div>
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" required><%= form.message || '' %></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn">Send Message ➤</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="window reveal">
+      <div class="window-bar"><span>connect.exe</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body">
+        <h2 class="section-title">Connect With Me</h2>
+        <ul class="connect-list">
+          <li><a href="mailto:<%= site.email %>"><%- include('partials/icon', { name: 'email' }) %> <%= site.email %></a></li>
+          <li><a href="https://<%= site.linkedin %>" target="_blank" rel="noopener"><%- include('partials/icon', { name: 'linkedin' }) %> <%= site.linkedin %></a></li>
+          <li><a href="https://<%= site.github %>" target="_blank" rel="noopener"><%- include('partials/icon', { name: 'github' }) %> <%= site.github %></a></li>
+          <li><a href="https://<%= site.instagramUrl %>" target="_blank" rel="noopener"><%- include('partials/icon', { name: 'instagram' }) %> <%= site.instagram %></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

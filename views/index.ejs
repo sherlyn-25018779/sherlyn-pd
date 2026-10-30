@@ -1,0 +1,183 @@
+<!-- HOME -->
+<section class="hero2">
+  <div class="hero2-inner">
+
+    <!-- giant name (sits behind everything) -->
+    <h1 class="giant"><span>Sherlyn</span> <span>Chua</span></h1>
+
+    <!-- laptop with objects popping out. Each object is a link to a page. -->
+    <div class="stage-wrap">
+      <div class="stage" id="stage">
+
+        <!-- dashed flight path for the plane -->
+        <svg class="trail" width="80" height="110" viewBox="0 0 80 110" aria-hidden="true">
+          <path d="M70 6 C 10 28, 64 62, 14 104" fill="none" stroke="#14274e" stroke-width="2.5" stroke-dasharray="6 7"/>
+        </svg>
+
+        <!-- Notebook -> About -->
+        <a href="/about" class="obj obj-notebook" aria-label="About me">
+          <span class="obj-label">About me →</span>
+          <span class="bob obj-body">
+            <span class="nbook">
+              <span class="rings"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <h3>About me</h3>
+              <span class="nline"></span>
+              <span class="nline"></span>
+              <span class="nline"></span>
+              <span class="nline s"></span>
+            </span>
+          </span>
+        </a>
+
+        <!-- Code window -> Portfolio -->
+        <a href="/portfolio" class="obj obj-code" aria-label="My portfolio">
+          <span class="obj-label">Portfolio →</span>
+          <span class="bob obj-body">
+            <span class="codewin">
+              <span class="cw-bar"><span>portfolio.exe</span><span>_ □ ✕</span></span>
+              <span class="cw-code">
+                &lt;<b>section</b>&gt;<br>
+                &nbsp;&nbsp;&lt;<b>h1</b>&gt;My Portfolio&lt;/<b>h1</b>&gt;<br>
+                &nbsp;&nbsp;&lt;<b>Projects</b> /&gt;<br>
+                &lt;/<b>section</b>&gt;<span class="caret">▌</span>
+              </span>
+            </span>
+          </span>
+        </a>
+
+        <!-- Paper plane -> Contact -->
+        <a href="/contact" class="obj obj-plane" aria-label="Contact me">
+          <span class="obj-label">Contact →</span>
+          <span class="bob obj-body">
+            <svg viewBox="0 0 100 80" aria-hidden="true">
+              <polygon points="2,34 98,4 62,76 50,50" fill="#fff" stroke="#14274e" stroke-width="3.5" stroke-linejoin="round"/>
+              <polygon points="50,50 62,76 46,70" fill="#0a857d" stroke="#14274e" stroke-width="3" stroke-linejoin="round"/>
+              <line x1="50" y1="50" x2="98" y2="4" stroke="#14274e" stroke-width="3"/>
+              <line x1="50" y1="50" x2="2" y2="34" stroke="#14274e" stroke-width="3"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- decorations (not links) -->
+        <span class="deco deco-gear" aria-hidden="true">⚙</span>
+        <span class="deco deco-code" aria-hidden="true">{ }</span>
+        <span class="deco deco-star" aria-hidden="true">★</span>
+
+        <!-- the laptop -->
+        <div class="laptop" aria-hidden="true">
+          <div class="lid">
+            <span class="cam"></span>
+            <div class="lscreen">
+              <div class="lbar"><span>sherlyn_os</span><span>● ● ●</span></div>
+              <div class="licons">
+                <div class="licon"><i></i>Work</div>
+                <div class="licon"><i></i>About</div>
+                <div class="licon"><i></i>Mail</div>
+              </div>
+              <div class="lwin">
+                <div class="lbar"><span>welcome.txt</span><span>✕</span></div>
+                <div class="l"></div>
+                <div class="l s"></div>
+                <span class="lbtn"></span>
+              </div>
+            </div>
+          </div>
+          <div class="deck"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- role line + button (bottom left) -->
+    <div class="hero2-left">
+      <p class="role"><span id="typed" data-words='["IT Student","Web Developer","UI/UX Designer","Problem Solver"]'>IT Student | Web Developer | Designer</span><span class="cursor-blink">▌</span></p>
+      <a href="/portfolio" class="btn">View My Work</a>
+    </div>
+
+    <!-- currently.txt (bottom right, hidden on smaller screens) -->
+    <div class="hero2-right">
+      <div class="window mini">
+        <div class="window-bar"><span>currently.txt</span><span class="dots"><i></i></span></div>
+        <div class="window-body">▸ Learning Node.js<br>▸ Building a travel app<br>▸ Designing in Figma</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS (carousel) -->
+<section>
+  <div class="container">
+    <div class="window reveal">
+      <div class="window-bar"><span>featured_projects</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="carousel" id="carousel">
+          <button class="car-btn car-prev" type="button" aria-label="Previous project">◀</button>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <% featured.forEach(p => { %>
+                <%- include('partials/project-card', { p, flip: false }) %>
+              <% }) %>
+            </div>
+          </div>
+          <button class="car-btn car-next" type="button" aria-label="Next project">▶</button>
+          <div class="car-dots"></div>
+        </div>
+
+        <div class="center">
+          <a href="/portfolio" class="btn btn-outline">View All Projects →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="container">
+    <div class="window reveal">
+      <div class="window-bar"><span>skills.exe</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body">
+        <h2 class="section-title">My Skills</h2>
+        <div class="chips">
+          <% site.skills.forEach(s => { %><span class="chip"><%= s %></span><% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT teaser -->
+<section>
+  <div class="container">
+    <div class="window reveal">
+      <div class="window-bar"><span>about_me.txt</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body teaser">
+        <div class="avatar-sm placeholder">
+          <!-- Replace with: <img src="/images/profile.jpg" alt="<%= site.name %>" /> -->
+          <span>PHOTO</span>
+        </div>
+        <div>
+          <h2 class="section-title" style="margin-bottom:0">About Me</h2>
+          <p>I am an Information Technology student with a passion for web development, UI/UX design and problem solving through technology.</p>
+          <a href="/about" class="btn">More About Me →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT teaser -->
+<section>
+  <div class="container">
+    <div class="window reveal">
+      <div class="window-bar"><span>new_message.exe</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body teaser-center">
+        <h2 class="section-title" style="margin-bottom:0">Get in Touch</h2>
+        <p>Have a project or an internship in mind? Let's talk!</p>
+        <a href="/contact" class="btn">Contact Me ➤</a>
+      </div>
+    </div>
+  </div>
+</section>

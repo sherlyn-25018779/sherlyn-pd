@@ -1,0 +1,57 @@
+<!-- ABOUT -->
+<section>
+  <div class="container stack">
+    <h1 class="page-title" style="margin-bottom:0">About Me</h1>
+
+    <div class="window reveal">
+      <div class="window-bar"><span>about_me.txt</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body about-intro">
+        <div class="avatar placeholder">
+          <!-- Replace with: <img src="/images/profile.jpg" alt="<%= site.name %>" /> -->
+          <span>PHOTO</span>
+        </div>
+        <div>
+          <h2>Hi! I'm <%= site.name %>.</h2>
+          <p>I am an Information Technology student with a passion for web development, UI/UX design and problem solving through technology.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="window reveal">
+      <div class="window-bar"><span>education.txt</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-item">
+          <strong><%= education.school %></strong>
+          <span><%= education.course %></span>
+          <span><%= education.years %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="window reveal">
+      <div class="window-bar"><span>skills.exe</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-cols">
+          <div>
+            <h4>Programming</h4>
+            <ul class="bullets"><% programming.forEach(s => { %><li><%= s %></li><% }) %></ul>
+          </div>
+          <div>
+            <h4>Design</h4>
+            <ul class="bullets"><% design.forEach(s => { %><li><%= s %></li><% }) %></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="window reveal">
+      <div class="window-bar"><span>certifications.txt</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="window-body">
+        <h2 class="section-title">Certifications</h2>
+        <ul class="bullets"><% certifications.forEach(c => { %><li><%= c %></li><% }) %></ul>
+      </div>
+    </div>
+  </div>
+</section>

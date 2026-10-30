@@ -1,0 +1,23 @@
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="logo" aria-label="Home"><span class="logo-mark"><%= site.initials %></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+
+    <div class="nav-right" id="navLinks">
+      <nav class="nav-links">
+        <% site.nav.forEach(link => { %>
+          <% const active = link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href); %>
+          <a href="<%= link.href %>" class="<%= active ? 'active' : '' %>"><%= link.label %></a>
+        <% }) %>
+      </nav>
+
+      <div class="nav-social">
+        <a href="https://<%= site.linkedin %>" target="_blank" rel="noopener" aria-label="LinkedIn"><%- include('icon', { name: 'linkedin' }) %></a>
+        <a href="mailto:<%= site.email %>" aria-label="Email"><%- include('icon', { name: 'email' }) %></a>
+        <a href="https://<%= site.github %>" target="_blank" rel="noopener" aria-label="GitHub"><%- include('icon', { name: 'github' }) %></a>
+      </div>
+
+      <a href="/contact" class="btn nav-cta <%= currentPath.startsWith('/contact') ? 'current' : '' %>">Let's Connect</a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,42 @@
+<%# Params: p (project), flip (true = flip card for portfolio, false = simple card for the carousel) %>
+<% const names = { web: 'Web Dev', uiux: 'UI/UX', graphic: 'Graphic', data: 'Data' }; %>
+<% if (flip) { %>
+<div class="flip reveal" tabindex="0">
+  <div class="flip-inner">
+    <div class="flip-face flip-front">
+      <% if (p.image) { %>
+        <div class="thumb"><img src="<%= p.image %>" alt="<%= p.title %>" /></div>
+      <% } else { %>
+        <div class="thumb placeholder"><span>IMAGE</span></div>
+      <% } %>
+      <div class="card-body">
+        <span class="tag"><%= names[p.category] || p.category %></span>
+        <h3><%= p.title %></h3>
+        <p><%= p.description %></p>
+        <span class="flip-hint">hover / tap to flip ↻</span>
+        <a href="<%= p.link %>" class="btn btn-sm">View Project</a>
+      </div>
+    </div>
+    <div class="flip-face flip-back">
+      <h3><%= p.title %></h3>
+      <h4>Tools</h4><p><%= p.tools %></p>
+      <h4>Challenge</h4><p><%= p.challenge %></p>
+      <h4>Outcome</h4><p><%= p.outcome %></p>
+      <a href="<%= p.link %>" class="btn btn-sm">View Project</a>
+    </div>
+  </div>
+</div>
+<% } else { %>
+<div class="card">
+  <% if (p.image) { %>
+    <div class="thumb"><img src="<%= p.image %>" alt="<%= p.title %>" /></div>
+  <% } else { %>
+    <div class="thumb placeholder"><span>IMAGE</span></div>
+  <% } %>
+  <div class="card-body">
+    <span class="tag"><%= names[p.category] || p.category %></span>
+    <h3><%= p.title %></h3>
+    <p><%= p.description %></p>
+  </div>
+</div>
+<% } %>
